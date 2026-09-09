@@ -1,0 +1,28 @@
+# macOS / Xcode
+.DS_Store
+*.xcuserstate
+DerivedData/
+
+# Local build products and caches
+work/
+outputs/*.app/
+outputs/CHARTER.md
+outputs/当前状态.md
+outputs/示例词卡.csv
+dist/
+
+# The app's local library, exports, and any accidental copied test data
+library-v2.json
+library-v2.backup.json
+words.json
+Exports/
+*.apkg
+*.anki2
+*.anki2-wal
+*.anki2-shm
+
+# Local model or editor settings
+.ollama/
+.env
+.env.*
+!.env.example
