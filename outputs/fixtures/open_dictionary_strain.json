@@ -1,0 +1,30 @@
+{
+  "headword": "strain",
+  "pos_groups": [
+    {
+      "pos": "noun",
+      "meanings": [
+        {
+          "sense_id": "fixture-noun-pressure",
+          "priority": "core",
+          "labels": ["general"],
+          "topics": ["emotion"],
+          "short_gloss": "压力；紧张",
+          "examples": [
+            {"text": "The long journey put a strain on the engine.", "translation": "长途旅行给发动机带来了压力。"}
+          ]
+        },
+        {
+          "sense_id": "fixture-noun-biology",
+          "priority": "common",
+          "labels": ["biology"],
+          "topics": ["microbiology"],
+          "short_gloss": "（生物）品系；菌株",
+          "examples": [
+            {"text": "Scientists studied a new strain of bacteria.", "translation": "科学家研究了一种新的细菌菌株。"}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "dataset": {
+    "case_count": 30,
+    "kind": "contract_fixture",
+    "name": "WordWorkbench semantic ranking contract benchmark",
+    "path": "benchmarks/semantic-ranking/cases.json",
+    "sha256": "7fc1521bd9cc28f10c89f58a128a5722dcb06858cd3a6d002c066f1ffd703af1",
+    "subject_count": 5
+  },
+  "engines": [
+    {
+      "abstain_precision": 1,
+      "abstain_recall": 1,
+      "available": true,
+      "call_count": 59,
+      "cold_latency_ms": 18,
+      "disk_mb": 418,
+      "engine_errors": [],
+      "failure_count": 0,
+      "failures": [],
+      "health": "本地重排服务已就绪（协议 v1，运行时 b10970-bfdc32183，模型 bge-reranker-v2-m3-Q4_K_M.gguf）",
+      "kind": "localReranker",
+      "model_revision": "本地重排服务已就绪（协议 v1，运行时 b10970-bfdc32183，模型 bge-reranker-v2-m3-q4_k_m.gguf）",
+      "modes": {
+        "label_sparse": {
+          "abstain_precision": 0.625,
+          "abstain_recall": 1,
+          "evaluated": 30,
+          "failures": [
+            {
+              "actual": "matter-verb",
+              "case_id": "physics-matter",
+              "category": "part_of_speech_conflict",
+              "expected": "matter-noun",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.98,
+          "selection_recall": 0.88,
+          "top1_accuracy": 0.96
+        },
+        "labeled": {
+          "abstain_precision": 1,
+          "abstain_recall": 1,
+          "evaluated": 30,
+          "failures": [],
+          "mrr": 1,
+          "selection_recall": 1,
+          "top1_accuracy": 1
+        }
+      },
+      "mrr": 1,
+      "name": "bge-reranker-v2-m3 (llama.cpp, Q4_K_M)",
+      "peak_memory_mb": 754,
+      "selection_recall": 1,
+      "top1_accuracy": 1,
+      "warm_p50_ms": 17,
+      "warm_p95_ms": 25
+    },
+    {
+      "abstain_precision": 1,
+      "abstain_recall": 1,
+      "available": true,
+      "call_count": 59,
+      "cold_latency_ms": 61,
+      "disk_mb": 1229,
+      "engine_errors": [],
+      "failure_count": 0,
+      "failures": [],
+      "health": "Ollama 已就绪：bge-m3",
+      "kind": "ollamaEmbedding",
+      "model_revision": "ollama version is 0.34.0",
+      "modes": {
+        "label_sparse": {
+          "abstain_precision": 0.2777777777777778,
+          "abstain_recall": 1,
+          "evaluated": 30,
+          "failures": [
+            {
+              "actual": "revolution-rotation",
+              "case_id": "humanities-revolution",
+              "category": "daily_professional_conflict",
+              "expected": "revolution-political",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "light-verb",
+              "case_id": "physics-light",
+              "category": "part_of_speech_conflict",
+              "expected": "light-noun",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.96,
+          "selection_recall": 0.48,
+          "top1_accuracy": 0.92
+        },
+        "labeled": {
+          "abstain_precision": 1,
+          "abstain_recall": 1,
+          "evaluated": 30,
+          "failures": [],
+          "mrr": 1,
+          "selection_recall": 1,
+          "top1_accuracy": 1
+        }
+      },
+      "mrr": 1,
+      "name": "bge-m3 (Ollama embedding)",
+      "peak_memory_mb": 673,
+      "selection_recall": 1,
+      "top1_accuracy": 1,
+      "warm_p50_ms": 62,
+      "warm_p95_ms": 77
+    }
+  ],
+  "headline_mode": "labeled",
+  "headline_note": "engines[] 的标量指标取 labeled 模式（应用实际发送的候选文本）；label_sparse 为缺少词典标签时的鲁棒性模式，见 modes。",
+  "limitations": [
+    "候选文本是为契约测试编写的合成材料，不是从 Open Dictionary 复制的词条。",
+    "选择阈值在本合成基准上校准，因此该基准不能用于决定是否晋级主引擎。",
+    "候选文本在 labeled 模式下包含词典领域标签；label_sparse 模式移除该行，用于隔离纯语义匹配。",
+    "失败用例已逐条列出，不只报告平均值。"
+  ],
+  "machine": {
+    "arch": "arm64",
+    "chip": "Apple M5",
+    "memory_gb": 16,
+    "model": "Mac17,4",
+    "os": "macOS 26.6.2",
+    "swift": "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+  },
+  "promotion_decision": "判定模式 label_sparse：top1 0.960 vs 0.920（Δ0.040），MRR 0.980 vs 0.960（Δ0.020），abstain precision 0.625 vs 0.278。规则：语义模式 top1 或 MRR 至少提升 0.050，且 abstain 精度不下降，才算可复核的净改进；否则保持候选。已有失败用例逐条列在 modes.label_sparse.failures，不只报告平均值。 参考 labeled 模式：top1 1.000 vs 1.000，abstain precision 1.000 vs 1.000（该模式保留了词典领域标签，不能单独证明语义能力）。 结论：CANDIDATE——默认保留已验证的 Ollama bge-m3 → 词典标签规则链，本地重排继续作为可评测候选。",
+  "promotion_decision_mode": "label_sparse",
+  "promotion_rule": "语义模式（优先 label_sparse）top1 或 MRR 相对 Ollama bge-m3 提升 >= 0.05，且 abstain precision 不下降，才判定 PROMOTED；并列或不足则 CANDIDATE。",
+  "promotion_verdict": "CANDIDATE",
+  "protocol": {
+    "candidate_text_modes": [
+      "labeled",
+      "label_sparse"
+    ],
+    "selection_policy": {
+      "localReranker": {
+        "min_confidence": 0.05,
+        "min_margin": 0.02
+      },
+      "ollamaEmbedding": {
+        "min_confidence": 0.79,
+        "min_margin": 0
+      }
+    },
+    "version": 1
+  },
+  "status": "PASS",
+  "timestamp": "2026-09-15T10:13:08Z",
+  "public_note": "Metrics measured on the maintainer machine (Apple Silicon, macOS). dataset.path was sanitized to a repo-relative value; no other field changed. See README \"语义排序的验证方式\" for reproduction steps."
+}

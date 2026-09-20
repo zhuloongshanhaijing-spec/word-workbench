@@ -1,0 +1,1182 @@
+{
+  "schema_version": 1,
+  "name": "WordWorkbench semantic ranking contract benchmark",
+  "provenance_notes": "All candidate texts are synthetic, human-authored contract fixtures. They are not copied from Open Dictionary, Wiktionary, or any licensed dictionary. IDs are benchmark-local and are used only for contract and ranking validation. One case concept (strain) is inspired by the checked local fixture outputs/fixtures/open_dictionary_strain.json.",
+  "case_count": 30,
+  "subject_count": 5,
+  "categories": [
+    "abstain",
+    "abstain_insufficient_context",
+    "abstain_wrong_input",
+    "daily_professional_conflict",
+    "domain_obvious",
+    "emotion_conflict",
+    "part_of_speech_conflict",
+    "same_word_other_unit"
+  ],
+  "cases": [
+    {
+      "id": "biology-membrane",
+      "category": "daily_professional_conflict",
+      "word": "membrane",
+      "unit": {
+        "name": "Cell Membranes",
+        "subject": "生物",
+        "topics": [
+          "细胞膜",
+          "代谢"
+        ],
+        "context": "细胞膜的组成和跨膜运输"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "membrane-bio",
+          "text": "单词：membrane\n词性：noun\n义项：细胞膜；包围细胞的薄层\n领域：biology, anatomy",
+          "domainHints": [
+            "biology",
+            "anatomy"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "membrane-music",
+          "text": "单词：membrane\n词性：noun\n义项：唱片的薄膜；音响振膜\n领域：music, acoustics",
+          "domainHints": [
+            "music",
+            "acoustics"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "membrane-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; professional biology sense should rank first."
+    },
+    {
+      "id": "biology-organism",
+      "category": "domain_obvious",
+      "word": "organism",
+      "unit": {
+        "name": "Microbiology",
+        "subject": "生物",
+        "topics": [
+          "microbiology",
+          "genetics"
+        ],
+        "context": "微生物与遗传物质"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "organism-bio",
+          "text": "单词：organism\n词性：noun\n义项：生物；有机体\n领域：biology, microbiology",
+          "domainHints": [
+            "biology",
+            "microbiology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "organism-general",
+          "text": "单词：organism\n词性：noun\n义项：组织；机构体系\n领域：general, society",
+          "domainHints": [
+            "general",
+            "society"
+          ],
+          "sourceRank": 30
+        }
+      ],
+      "expected_top_id": "organism-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; obvious biology domain word."
+    },
+    {
+      "id": "biology-cell",
+      "category": "daily_professional_conflict",
+      "word": "cell",
+      "unit": {
+        "name": "Cell Biology",
+        "subject": "生物",
+        "topics": [
+          "细胞",
+          "细胞器"
+        ],
+        "context": "细胞结构与功能"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "cell-bio",
+          "text": "单词：cell\n词性：noun\n义项：细胞；生物体的基本结构单位\n领域：biology, cytology",
+          "domainHints": [
+            "biology",
+            "cytology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "cell-prison",
+          "text": "单词：cell\n词性：noun\n义项：小房间；牢房\n领域：general, law",
+          "domainHints": [
+            "general",
+            "law"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "cell-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; common daily/technical conflict."
+    },
+    {
+      "id": "biology-strain",
+      "category": "part_of_speech_conflict",
+      "word": "strain",
+      "unit": {
+        "name": "Genetics",
+        "subject": "生物",
+        "topics": [
+          "genetics",
+          "microbiology"
+        ],
+        "context": "细菌菌株与遗传变异"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "strain-verb",
+          "text": "单词：strain\n词性：verb\n义项：拉伤；扭伤；使过度紧张\n领域：general, health",
+          "domainHints": [
+            "general",
+            "health"
+          ],
+          "sourceRank": 20
+        },
+        {
+          "sourceSenseID": "strain-bio",
+          "text": "单词：strain\n词性：noun\n义项：（生物）品系；菌株\n领域：biology, microbiology, genetics",
+          "domainHints": [
+            "biology",
+            "microbiology",
+            "genetics"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "strain-pressure",
+          "text": "单词：strain\n词性：noun\n义项：压力；紧张\n领域：general, emotion",
+          "domainHints": [
+            "general",
+            "emotion"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "strain-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case inspired by the checked Open Dictionary strain fixture; includes POS conflict."
+    },
+    {
+      "id": "biology-strain-emotion",
+      "category": "same_word_other_unit",
+      "word": "strain",
+      "unit": {
+        "name": "Emotional Stress",
+        "subject": "情绪",
+        "topics": [
+          "emotion",
+          "psychology"
+        ],
+        "context": "长期压力与情绪紧张"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "strain-bio",
+          "text": "单词：strain\n词性：noun\n义项：（生物）品系；菌株\n领域：biology, microbiology",
+          "domainHints": [
+            "biology",
+            "microbiology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "strain-pressure",
+          "text": "单词：strain\n词性：noun\n义项：压力；紧张\n领域：general, emotion, psychology",
+          "domainHints": [
+            "general",
+            "emotion",
+            "psychology"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "strain-pressure",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; checks unit-dependent reranking."
+    },
+    {
+      "id": "biology-culture",
+      "category": "daily_professional_conflict",
+      "word": "culture",
+      "unit": {
+        "name": "Cell Culture",
+        "subject": "生物",
+        "topics": [
+          "细胞培养",
+          "微生物"
+        ],
+        "context": "实验室细胞培养与无菌操作"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "culture-bio",
+          "text": "单词：culture\n词性：noun\n义项：（实验室）培养；培养物\n领域：biology, laboratory",
+          "domainHints": [
+            "biology",
+            "laboratory"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "culture-society",
+          "text": "单词：culture\n词性：noun\n义项：文化；社会习俗\n领域：humanities, society",
+          "domainHints": [
+            "humanities",
+            "society"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "culture-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "biology-tissue",
+      "category": "daily_professional_conflict",
+      "word": "tissue",
+      "unit": {
+        "name": "Anatomy",
+        "subject": "生物",
+        "topics": [
+          "anatomy",
+          "histology"
+        ],
+        "context": "人体组织与器官"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "tissue-bio",
+          "text": "单词：tissue\n词性：noun\n义项：（生物）组织\n领域：biology, anatomy, histology",
+          "domainHints": [
+            "biology",
+            "anatomy",
+            "histology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "tissue-paper",
+          "text": "单词：tissue\n词性：noun\n义项：纸巾；薄纸\n领域：general, household",
+          "domainHints": [
+            "general",
+            "household"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "tissue-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "biology-host",
+      "category": "daily_professional_conflict",
+      "word": "host",
+      "unit": {
+        "name": "Parasitology",
+        "subject": "生物",
+        "topics": [
+          "parasitology",
+          "ecology"
+        ],
+        "context": "寄生虫与宿主关系"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "host-bio",
+          "text": "单词：host\n词性：noun\n义项：宿主；寄主\n领域：biology, parasitology, ecology",
+          "domainHints": [
+            "biology",
+            "parasitology",
+            "ecology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "host-media",
+          "text": "单词：host\n词性：noun\n义项：主人；节目主持人\n领域：general, media",
+          "domainHints": [
+            "general",
+            "media"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "host-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "biology-resistance",
+      "category": "daily_professional_conflict",
+      "word": "resistance",
+      "unit": {
+        "name": "Antibiotic Resistance",
+        "subject": "生物",
+        "topics": [
+          "microbiology",
+          "antibiotics"
+        ],
+        "context": "细菌耐药机制"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "resistance-bio",
+          "text": "单词：resistance\n词性：noun\n义项：耐药性；抗性\n领域：biology, microbiology, medicine",
+          "domainHints": [
+            "biology",
+            "microbiology",
+            "medicine"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "resistance-general",
+          "text": "单词：resistance\n词性：noun\n义项：抵抗；反对\n领域：general, politics",
+          "domainHints": [
+            "general",
+            "politics"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "resistance-bio",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "ecology-community",
+      "category": "daily_professional_conflict",
+      "word": "community",
+      "unit": {
+        "name": "Ecology",
+        "subject": "环境",
+        "topics": [
+          "ecology",
+          "biodiversity"
+        ],
+        "context": "群落生态与物种多样性"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "community-eco",
+          "text": "单词：community\n词性：noun\n义项：（生态）群落；生物群落\n领域：ecology, biology, environment",
+          "domainHints": [
+            "ecology",
+            "biology",
+            "environment"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "community-general",
+          "text": "单词：community\n词性：noun\n义项：社区；群体\n领域：general, society",
+          "domainHints": [
+            "general",
+            "society"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "community-eco",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "ecology-succession",
+      "category": "daily_professional_conflict",
+      "word": "succession",
+      "unit": {
+        "name": "Ecological Succession",
+        "subject": "环境",
+        "topics": [
+          "ecology",
+          "succession"
+        ],
+        "context": "群落演替与生态恢复"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "succession-eco",
+          "text": "单词：succession\n词性：noun\n义项：（生态）演替\n领域：ecology, environment",
+          "domainHints": [
+            "ecology",
+            "environment"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "succession-general",
+          "text": "单词：succession\n词性：noun\n义项：继承；接连发生\n领域：general, law, business",
+          "domainHints": [
+            "general",
+            "law",
+            "business"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "succession-eco",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "ecology-niche",
+      "category": "daily_professional_conflict",
+      "word": "niche",
+      "unit": {
+        "name": "Ecological Niche",
+        "subject": "环境",
+        "topics": [
+          "ecology",
+          "habitat"
+        ],
+        "context": "生态位与资源利用"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "niche-eco",
+          "text": "单词：niche\n词性：noun\n义项：（生态）生态位\n领域：ecology, environment, biology",
+          "domainHints": [
+            "ecology",
+            "environment",
+            "biology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "niche-market",
+          "text": "单词：niche\n词性：noun\n义项：有利可图的小市场；合适的位置\n领域：business, general",
+          "domainHints": [
+            "business",
+            "general"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "niche-eco",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "environment-current",
+      "category": "daily_professional_conflict",
+      "word": "current",
+      "unit": {
+        "name": "Ocean Currents",
+        "subject": "环境",
+        "topics": [
+          "oceanography",
+          "climate"
+        ],
+        "context": "洋流与全球气候"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "current-ocean",
+          "text": "单词：current\n词性：noun\n义项：水流；洋流；气流\n领域：environment, oceanography, geography",
+          "domainHints": [
+            "environment",
+            "oceanography",
+            "geography"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "current-electric",
+          "text": "单词：current\n词性：noun\n义项：电流\n领域：physics, electricity",
+          "domainHints": [
+            "physics",
+            "electricity"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "current-adj",
+          "text": "单词：current\n词性：adjective\n义项：当前的；现行的\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "current-ocean",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; POS/domain conflict."
+    },
+    {
+      "id": "environment-bank",
+      "category": "daily_professional_conflict",
+      "word": "bank",
+      "unit": {
+        "name": "River Ecology",
+        "subject": "环境",
+        "topics": [
+          "river",
+          "ecology",
+          "geography"
+        ],
+        "context": "河流地貌与河岸带生态"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "bank-river",
+          "text": "单词：bank\n词性：noun\n义项：河岸；堤岸\n领域：geography, environment, ecology",
+          "domainHints": [
+            "geography",
+            "environment",
+            "ecology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "bank-finance",
+          "text": "单词：bank\n词性：noun\n义项：银行；金融机构\n领域：finance, business",
+          "domainHints": [
+            "finance",
+            "business"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "bank-river",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "humanities-revolution",
+      "category": "daily_professional_conflict",
+      "word": "revolution",
+      "unit": {
+        "name": "Political Revolutions",
+        "subject": "人文",
+        "topics": [
+          "history",
+          "politics"
+        ],
+        "context": "近代政治革命与社会变迁"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "revolution-political",
+          "text": "单词：revolution\n词性：noun\n义项：革命；重大变革\n领域：history, politics, humanities",
+          "domainHints": [
+            "history",
+            "politics",
+            "humanities"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "revolution-rotation",
+          "text": "单词：revolution\n词性：noun\n义项：旋转；公转\n领域：physics, astronomy",
+          "domainHints": [
+            "physics",
+            "astronomy"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "revolution-political",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "humanities-romantic",
+      "category": "daily_professional_conflict",
+      "word": "romantic",
+      "unit": {
+        "name": "Romanticism",
+        "subject": "人文",
+        "topics": [
+          "literature",
+          "art history"
+        ],
+        "context": "浪漫主义文学与艺术运动"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "romantic-movement",
+          "text": "单词：romantic\n词性：adjective\n义项：浪漫主义（文学艺术运动）的\n领域：literature, art, history",
+          "domainHints": [
+            "literature",
+            "art",
+            "history"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "romantic-love",
+          "text": "单词：romantic\n词性：adjective\n义项：浪漫的；爱情的\n领域：general, emotion",
+          "domainHints": [
+            "general",
+            "emotion"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "romantic-movement",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "humanities-crusade",
+      "category": "daily_professional_conflict",
+      "word": "crusade",
+      "unit": {
+        "name": "Medieval History",
+        "subject": "人文",
+        "topics": [
+          "history",
+          "religion"
+        ],
+        "context": "中世纪十字军东征"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "crusade-history",
+          "text": "单词：crusade\n词性：noun\n义项：（历史）十字军东征\n领域：history, religion",
+          "domainHints": [
+            "history",
+            "religion"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "crusade-campaign",
+          "text": "单词：crusade\n词性：noun\n义项：运动；改革运动\n领域：general, politics",
+          "domainHints": [
+            "general",
+            "politics"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "crusade-history",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "humanities-baroque",
+      "category": "daily_professional_conflict",
+      "word": "baroque",
+      "unit": {
+        "name": "Baroque Art",
+        "subject": "人文",
+        "topics": [
+          "art history",
+          "music history"
+        ],
+        "context": "巴洛克时期的艺术与音乐"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "baroque-art",
+          "text": "单词：baroque\n词性：adjective\n义项：巴洛克风格的\n领域：art, music, history",
+          "domainHints": [
+            "art",
+            "music",
+            "history"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "baroque-ornate",
+          "text": "单词：baroque\n词性：adjective\n义项：华丽而繁复的\n领域：general, style",
+          "domainHints": [
+            "general",
+            "style"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "baroque-art",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "humanities-myth",
+      "category": "daily_professional_conflict",
+      "word": "myth",
+      "unit": {
+        "name": "Mythology",
+        "subject": "人文",
+        "topics": [
+          "mythology",
+          "literature"
+        ],
+        "context": "古代神话与叙事传统"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "myth-mythology",
+          "text": "单词：myth\n词性：noun\n义项：神话；神话体系\n领域：mythology, literature, humanities",
+          "domainHints": [
+            "mythology",
+            "literature",
+            "humanities"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "myth-false",
+          "text": "单词：myth\n词性：noun\n义项：谬见；错误的观念\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "myth-mythology",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "emotion-anxious",
+      "category": "emotion_conflict",
+      "word": "anxious",
+      "unit": {
+        "name": "Anxiety",
+        "subject": "情绪",
+        "topics": [
+          "emotion",
+          "psychology"
+        ],
+        "context": "焦虑情绪与心理压力"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "anxious-worried",
+          "text": "单词：anxious\n词性：adjective\n义项：焦虑的；担心的\n领域：emotion, psychology",
+          "domainHints": [
+            "emotion",
+            "psychology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "anxious-eager",
+          "text": "单词：anxious\n词性：adjective\n义项：渴望的；急切的\n领域：general, emotion",
+          "domainHints": [
+            "general",
+            "emotion"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "anxious-worried",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "emotion-depressed",
+      "category": "daily_professional_conflict",
+      "word": "depressed",
+      "unit": {
+        "name": "Mood Disorders",
+        "subject": "情绪",
+        "topics": [
+          "psychology",
+          "emotion"
+        ],
+        "context": "抑郁情绪与心理健康"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "depressed-sad",
+          "text": "单词：depressed\n词性：adjective\n义项：抑郁的；沮丧的\n领域：psychology, emotion, medicine",
+          "domainHints": [
+            "psychology",
+            "emotion",
+            "medicine"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "depressed-economic",
+          "text": "单词：depressed\n词性：adjective\n义项：萧条的；不景气的\n领域：economics, general",
+          "domainHints": [
+            "economics",
+            "general"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "depressed-sad",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "emotion-attachment",
+      "category": "daily_professional_conflict",
+      "word": "attachment",
+      "unit": {
+        "name": "Attachment Theory",
+        "subject": "情绪",
+        "topics": [
+          "psychology",
+          "emotion",
+          "development"
+        ],
+        "context": "依恋理论与亲密关系"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "attachment-bond",
+          "text": "单词：attachment\n词性：noun\n义项：依恋；情感联系\n领域：psychology, emotion, development",
+          "domainHints": [
+            "psychology",
+            "emotion",
+            "development"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "attachment-file",
+          "text": "单词：attachment\n词性：noun\n义项：附件；附加物\n领域：technology, general",
+          "domainHints": [
+            "technology",
+            "general"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "attachment-bond",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case."
+    },
+    {
+      "id": "emotion-affect",
+      "category": "part_of_speech_conflict",
+      "word": "affect",
+      "unit": {
+        "name": "Affect and Emotion",
+        "subject": "情绪",
+        "topics": [
+          "psychology",
+          "emotion"
+        ],
+        "context": "情感体验与情绪状态"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "affect-verb",
+          "text": "单词：affect\n词性：verb\n义项：影响；作用于\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "affect-noun",
+          "text": "单词：affect\n词性：noun\n义项：（心理学）情感；情绪反应\n领域：psychology, emotion",
+          "domainHints": [
+            "psychology",
+            "emotion"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "affect-noun",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; requires part-of-speech and unit sensitivity."
+    },
+    {
+      "id": "physics-light",
+      "category": "part_of_speech_conflict",
+      "word": "light",
+      "unit": {
+        "name": "Optics",
+        "subject": "物理",
+        "topics": [
+          "optics",
+          "light"
+        ],
+        "context": "光的传播与折射"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "light-noun",
+          "text": "单词：light\n词性：noun\n义项：光；光线\n领域：physics, optics",
+          "domainHints": [
+            "physics",
+            "optics"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "light-adj",
+          "text": "单词：light\n词性：adjective\n义项：轻的；浅色的\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "light-verb",
+          "text": "单词：light\n词性：verb\n义项：点燃；照亮\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": "light-noun",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; POS conflict."
+    },
+    {
+      "id": "physics-matter",
+      "category": "part_of_speech_conflict",
+      "word": "matter",
+      "unit": {
+        "name": "States of Matter",
+        "subject": "物理",
+        "topics": [
+          "matter",
+          "chemistry"
+        ],
+        "context": "物质状态与粒子模型"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "matter-noun",
+          "text": "单词：matter\n词性：noun\n义项：物质；材料\n领域：physics, chemistry",
+          "domainHints": [
+            "physics",
+            "chemistry"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "matter-verb",
+          "text": "单词：matter\n词性：verb\n义项：要紧；有关系\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": "matter-noun",
+      "expected_abstain": false,
+      "notes": "Synthetic contract case; POS conflict."
+    },
+    {
+      "id": "abstain-field",
+      "category": "abstain",
+      "word": "field",
+      "unit": {
+        "name": "Emotion Basics",
+        "subject": "情绪",
+        "topics": [
+          "emotion",
+          "psychology"
+        ],
+        "context": "基础情绪词汇"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "field-land",
+          "text": "单词：field\n词性：noun\n义项：田地；场地\n领域：general, agriculture",
+          "domainHints": [
+            "general",
+            "agriculture"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "field-sports",
+          "text": "单词：field\n词性：noun\n义项：运动场；比赛场地\n领域：sports",
+          "domainHints": [
+            "sports"
+          ],
+          "sourceRank": 20
+        },
+        {
+          "sourceSenseID": "field-magnetic",
+          "text": "单词：field\n词性：noun\n义项：场；磁场\n领域：physics",
+          "domainHints": [
+            "physics"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": null,
+      "expected_abstain": true,
+      "notes": "Synthetic contract abstain case; no candidate belongs to the unit context."
+    },
+    {
+      "id": "abstain-deposit",
+      "category": "abstain",
+      "word": "deposit",
+      "unit": {
+        "name": "Cell Membranes",
+        "subject": "生物",
+        "topics": [
+          "细胞膜",
+          "代谢"
+        ],
+        "context": "细胞膜的组成和跨膜运输"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "deposit-money",
+          "text": "单词：deposit\n词性：noun\n义项：存款；押金\n领域：finance, banking",
+          "domainHints": [
+            "finance",
+            "banking"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "deposit-sediment",
+          "text": "单词：deposit\n词性：noun\n义项：沉积物；矿床\n领域：geology, environment",
+          "domainHints": [
+            "geology",
+            "environment"
+          ],
+          "sourceRank": 20
+        },
+        {
+          "sourceSenseID": "deposit-put",
+          "text": "单词：deposit\n词性：verb\n义项：放置；存放\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": null,
+      "expected_abstain": true,
+      "notes": "Synthetic contract abstain case; no biology/cell-membrane candidate."
+    },
+    {
+      "id": "abstain-sincere",
+      "category": "abstain_wrong_input",
+      "word": "sincerely",
+      "unit": {
+        "name": "Genetics",
+        "subject": "生物",
+        "topics": [
+          "genetics",
+          "microbiology"
+        ],
+        "context": "细菌菌株与遗传变异"
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "sincerely-letter",
+          "text": "单词：sincerely\n词性：adverb\n义项：真诚地；诚挚地\n领域：general, correspondence",
+          "domainHints": [
+            "general",
+            "correspondence"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "sincerely-formal",
+          "text": "单词：sincerely\n词性：adverb\n义项：用于正式信函结尾\n领域：general, writing",
+          "domainHints": [
+            "general",
+            "writing"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": null,
+      "expected_abstain": true,
+      "notes": "Synthetic contract abstain case; no professional sense exists for this unit."
+    },
+    {
+      "id": "abstain-resolution",
+      "category": "abstain_insufficient_context",
+      "word": "resolution",
+      "unit": {
+        "name": "Quick Review",
+        "subject": "",
+        "topics": [],
+        "context": ""
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "resolution-decision",
+          "text": "单词：resolution\n词性：noun\n义项：决心；决议\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "resolution-screen",
+          "text": "单词：resolution\n词性：noun\n义项：分辨率；清晰度\n领域：technology",
+          "domainHints": [
+            "technology"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "resolution-separation",
+          "text": "单词：resolution\n词性：noun\n义项：分解；解决\n领域：general, science",
+          "domainHints": [
+            "general",
+            "science"
+          ],
+          "sourceRank": 20
+        }
+      ],
+      "expected_top_id": null,
+      "expected_abstain": true,
+      "notes": "Synthetic contract abstain case; Unit context is insufficient, so no sense should be preselected."
+    },
+    {
+      "id": "abstain-critical",
+      "category": "abstain_insufficient_context",
+      "word": "critical",
+      "unit": {
+        "name": "Unassigned",
+        "subject": "",
+        "topics": [],
+        "context": ""
+      },
+      "candidates": [
+        {
+          "sourceSenseID": "critical-judgment",
+          "text": "单词：critical\n词性：adjective\n义项：批评的；挑剔的\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        },
+        {
+          "sourceSenseID": "critical-important",
+          "text": "单词：critical\n词性：adjective\n义项：关键的；至关重要的\n领域：general",
+          "domainHints": [
+            "general"
+          ],
+          "sourceRank": 10
+        }
+      ],
+      "expected_top_id": null,
+      "expected_abstain": true,
+      "notes": "Synthetic contract abstain case; no usable Unit context."
+    }
+  ]
+}

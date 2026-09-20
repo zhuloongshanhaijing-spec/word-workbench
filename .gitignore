@@ -2,24 +2,47 @@
 .DS_Store
 *.xcuserstate
 DerivedData/
+*.dSYM/
 
-# Local build products and caches
+# Local build products, runtimes, and caches
 work/
-outputs/*.app/
+dist/
+tools/local-reranker/.cache/
+tools/local-reranker/runtime/
+.harness-local/
+*.app
 outputs/CHARTER.md
 outputs/当前状态.md
 outputs/示例词卡.csv
-dist/
+llama-server.log
+llama-server.pid
+
+# Dictionary data must never enter this source repository (CC BY-SA 4.0,
+# redistributed only inside release .app/.zip artifacts — see THIRD_PARTY_DATA.md)
+*.sqlite
+*.sqlite-*
+*.sqlite.gz
+*.sqlite.previous
+data/
 
 # The app's local library, exports, and any accidental copied test data
 library-v2.json
 library-v2.backup.json
+library-v3.json
+library-v3.backup.json
 words.json
 Exports/
+
+# Anki data
 *.apkg
 *.anki2
 *.anki2-wal
 *.anki2-shm
+
+# Model weights and local runtimes must never be committed
+*.gguf
+*.onnx
+*.bin
 
 # Local model or editor settings
 .ollama/

@@ -1,0 +1,289 @@
+{
+  "dataset": {
+    "case_count": 24,
+    "kind": "heldout_evaluation",
+    "name": "WordWorkbench independent held-out evaluation (real Open Dictionary records)",
+    "path": ".harness-local/heldout/heldout_cases.json (regenerated locally, not committed)",
+    "sha256": "312c41445c28129da7a75ea11a3712b8a3fe8ba56608cf7a704c11561bc96f56",
+    "subject_count": 6
+  },
+  "engines": [
+    {
+      "abstain_precision": 0.6666666666666666,
+      "abstain_recall": 1,
+      "available": true,
+      "call_count": 47,
+      "cold_latency_ms": 203,
+      "disk_mb": 418,
+      "engine_errors": [],
+      "failure_count": 4,
+      "failures": [
+        {
+          "actual": "od:noun|et1|s1",
+          "case_id": "biology-invasive",
+          "category": "domain_obvious",
+          "expected": "od:adj|et1|s5",
+          "kind": "top1_miss"
+        },
+        {
+          "actual": "od:noun|et1|s2",
+          "case_id": "environment-runoff",
+          "category": "domain_obvious",
+          "expected": "od:noun|et1|s1",
+          "kind": "top1_miss"
+        },
+        {
+          "actual": "od:noun|et1|s7",
+          "case_id": "environment-sink",
+          "category": "daily_professional_conflict",
+          "expected": "od:noun|et1|s6",
+          "kind": "top1_miss"
+        },
+        {
+          "actual": "od:verb|et1|s1",
+          "case_id": "physics-power",
+          "category": "daily_professional_conflict",
+          "expected": "od:noun|et1|s7",
+          "kind": "top1_miss"
+        }
+      ],
+      "health": "本地重排服务已就绪（协议 v1，运行时 b10970-bfdc32183，模型 bge-reranker-v2-m3-Q4_K_M.gguf）",
+      "kind": "localReranker",
+      "model_revision": "本地重排服务已就绪（协议 v1，运行时 b10970-bfdc32183，模型 bge-reranker-v2-m3-q4_k_m.gguf）",
+      "modes": {
+        "label_sparse": {
+          "abstain_precision": 0.5714285714285714,
+          "abstain_recall": 1,
+          "evaluated": 24,
+          "failures": [
+            {
+              "actual": "od:adj|et1|s4",
+              "case_id": "biology-invasive",
+              "category": "domain_obvious",
+              "expected": "od:adj|et1|s5",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s2",
+              "case_id": "environment-runoff",
+              "category": "domain_obvious",
+              "expected": "od:noun|et1|s1",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s11",
+              "case_id": "environment-sink",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s6",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s13",
+              "case_id": "physics-power",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s7",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:verb|et1|s16",
+              "case_id": "physics-spin",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s3",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.8430555555555556,
+          "selection_recall": 0.7,
+          "top1_accuracy": 0.75
+        },
+        "labeled": {
+          "abstain_precision": 0.6666666666666666,
+          "abstain_recall": 1,
+          "evaluated": 24,
+          "failures": [
+            {
+              "actual": "od:noun|et1|s1",
+              "case_id": "biology-invasive",
+              "category": "domain_obvious",
+              "expected": "od:adj|et1|s5",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s2",
+              "case_id": "environment-runoff",
+              "category": "domain_obvious",
+              "expected": "od:noun|et1|s1",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s7",
+              "case_id": "environment-sink",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s6",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:verb|et1|s1",
+              "case_id": "physics-power",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s7",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.8670454545454545,
+          "selection_recall": 0.75,
+          "top1_accuracy": 0.8
+        }
+      },
+      "mrr": 0.8670454545454545,
+      "name": "bge-reranker-v2-m3 (llama.cpp, Q4_K_M)",
+      "peak_memory_mb": 993,
+      "selection_recall": 0.75,
+      "top1_accuracy": 0.8,
+      "warm_p50_ms": 127,
+      "warm_p95_ms": 293
+    },
+    {
+      "abstain_precision": 0.8,
+      "abstain_recall": 1,
+      "available": true,
+      "call_count": 47,
+      "cold_latency_ms": 406,
+      "disk_mb": 1229,
+      "engine_errors": [],
+      "failure_count": 2,
+      "failures": [
+        {
+          "actual": "od:noun|et1|s7",
+          "case_id": "environment-sink",
+          "category": "daily_professional_conflict",
+          "expected": "od:noun|et1|s6",
+          "kind": "top1_miss"
+        },
+        {
+          "actual": "od:noun|et1|s13",
+          "case_id": "physics-power",
+          "category": "daily_professional_conflict",
+          "expected": "od:noun|et1|s7",
+          "kind": "top1_miss"
+        }
+      ],
+      "health": "Ollama 已就绪：bge-m3",
+      "kind": "ollamaEmbedding",
+      "model_revision": "ollama version is 0.34.0",
+      "modes": {
+        "label_sparse": {
+          "abstain_precision": 0.4444444444444444,
+          "abstain_recall": 1,
+          "evaluated": 24,
+          "failures": [
+            {
+              "actual": "od:noun|et1|s1",
+              "case_id": "biology-invasive",
+              "category": "domain_obvious",
+              "expected": "od:adj|et1|s5",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s7",
+              "case_id": "environment-sink",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s6",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s13",
+              "case_id": "physics-power",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s7",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s13",
+              "case_id": "psychology-projection",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s6",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.8702380952380953,
+          "selection_recall": 0.65,
+          "top1_accuracy": 0.8
+        },
+        "labeled": {
+          "abstain_precision": 0.8,
+          "abstain_recall": 1,
+          "evaluated": 24,
+          "failures": [
+            {
+              "actual": "od:noun|et1|s7",
+              "case_id": "environment-sink",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s6",
+              "kind": "top1_miss"
+            },
+            {
+              "actual": "od:noun|et1|s13",
+              "case_id": "physics-power",
+              "category": "daily_professional_conflict",
+              "expected": "od:noun|et1|s7",
+              "kind": "top1_miss"
+            }
+          ],
+          "mrr": 0.9097222222222221,
+          "selection_recall": 0.9,
+          "top1_accuracy": 0.9
+        }
+      },
+      "mrr": 0.9097222222222221,
+      "name": "bge-m3 (Ollama embedding)",
+      "peak_memory_mb": 673,
+      "selection_recall": 0.9,
+      "top1_accuracy": 0.9,
+      "warm_p50_ms": 241,
+      "warm_p95_ms": 578
+    }
+  ],
+  "headline_mode": "labeled",
+  "headline_note": "engines[] 的标量指标取 labeled 模式（应用实际发送的候选文本）；label_sparse 为缺少词典标签时的鲁棒性模式，见 modes。",
+  "limitations": [
+    "候选文本与 sourceSenseID 由真实本地 Open Dictionary v2.0 记录导出；可执行 benchmarks/semantic-ranking/generate_heldout_cases.py 重现。",
+    "期望义项由实现者依据词典自身 labels/topics/gloss 逐条审计，理由写在每个 case 的 rationale 字段。",
+    "该留出集未参与选择阈值校准；阈值只在合成契约样例 cases.json 上调整。",
+    "生成文件含 CC BY-SA 4.0 词典文本，保存在被忽略的 .harness-local 目录，未提交到 MIT 仓库。",
+    "候选文本在 labeled 模式下包含词典领域标签；label_sparse 模式移除该行，用于隔离纯语义匹配。",
+    "失败用例已逐条列出，不只报告平均值。"
+  ],
+  "machine": {
+    "arch": "arm64",
+    "chip": "Apple M5",
+    "memory_gb": 16,
+    "model": "Mac17,4",
+    "os": "macOS 26.6.2",
+    "swift": "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+  },
+  "promotion_decision": "判定模式 label_sparse：top1 0.750 vs 0.800（Δ-0.050），MRR 0.843 vs 0.870（Δ-0.027），abstain precision 0.571 vs 0.444。规则：语义模式 top1 或 MRR 至少提升 0.050，且 abstain 精度不下降，才算可复核的净改进；否则保持候选。已有失败用例逐条列在 modes.label_sparse.failures，不只报告平均值。 参考 labeled 模式：top1 0.800 vs 0.900，abstain precision 0.667 vs 0.800（该模式保留了词典领域标签，不能单独证明语义能力）。 结论：CANDIDATE——默认保留已验证的 Ollama bge-m3 → 词典标签规则链，本地重排继续作为可评测候选。",
+  "promotion_decision_mode": "label_sparse",
+  "promotion_rule": "语义模式（优先 label_sparse）top1 或 MRR 相对 Ollama bge-m3 提升 >= 0.05，且 abstain precision 不下降，才判定 PROMOTED；并列或不足则 CANDIDATE。",
+  "promotion_verdict": "CANDIDATE",
+  "protocol": {
+    "candidate_text_modes": [
+      "labeled",
+      "label_sparse"
+    ],
+    "selection_policy": {
+      "localReranker": {
+        "min_confidence": 0.05,
+        "min_margin": 0.02
+      },
+      "ollamaEmbedding": {
+        "min_confidence": 0.79,
+        "min_margin": 0
+      }
+    },
+    "version": 1
+  },
+  "status": "PASS",
+  "timestamp": "2026-09-15T10:12:33Z",
+  "public_note": "Metrics measured on the maintainer machine (Apple Silicon, macOS). dataset.path was sanitized to a repo-relative value; no other field changed. See README \"语义排序的验证方式\" for reproduction steps."
+}

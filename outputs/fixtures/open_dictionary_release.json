@@ -1,0 +1,12 @@
+{
+  "tag_name": "v2.0",
+  "html_url": "https://github.com/ahpxex/open-dictionary/releases/tag/v2.0",
+  "assets": [
+    {
+      "name": "distribution.sqlite.gz",
+      "size": 216962932,
+      "digest": "sha256:b8031d1b2e39019a520bcea3a7b84d5dff7df026f13310e5d8dc0eb044df07f3",
+      "browser_download_url": "https://github.com/ahpxex/open-dictionary/releases/download/v2.0/distribution.sqlite.gz"
+    }
+  ]
+}
